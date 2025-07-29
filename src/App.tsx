@@ -17,6 +17,7 @@ function App() {
             <Route path="/" element={<Layout />}>
               <Route path="/" element={<Home />} />
               <Route path="/artist/:artistId" element={<ArtistAlbums />} />
+              <Route path="/auth" element={<>Carregando...</>} />
             </Route>
           </Routes>
         </QueryClientProvider>
