@@ -1,4 +1,4 @@
-const clientId = "753509ff2f404645b6dad30f73c86746";
+const clientId = import.meta.env.VITE_CLIENT_ID;
 
 const generateRandomString = (length: number) => {
   const possible =
@@ -24,8 +24,9 @@ export const genCode = async () => {
   const codeVerifier = generateRandomString(64);
   const hashed = await sha256(codeVerifier);
   const codeChallenge = base64encode(hashed);
+  const url = import.meta.env.VITE_URL;
 
-  const redirectUri = "https://127.0.0.1:5173/auth";
+  const redirectUri = `${url}/auth`;
 
   const scope = "user-read-private user-read-email";
   const authUrl = new URL("https://accounts.spotify.com/authorize");
