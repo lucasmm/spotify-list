@@ -34,7 +34,9 @@ export const getToken = async (data: {
   code: string;
   codeVerifier: string;
 }): Promise<{ access_token: string }> => {
-  const redirectUri = "https://127.0.0.1:5173/auth";
+  const url = import.meta.env.VITE_URL;
+
+  const redirectUri = `${url}/auth`;
 
   const response = await accountsApi.post(
     "token",
